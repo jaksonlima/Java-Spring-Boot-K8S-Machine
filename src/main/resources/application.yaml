@@ -8,8 +8,10 @@ server:
   port: 8081
 
 logging:
-  level:
-    - 'INFO'
   file:
     path: '/var/log/spring'
+  level:
+    root: 'info'
+    org.springframework.web.servlet.DispatcherServlet: 'trace'
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: 'off'
 

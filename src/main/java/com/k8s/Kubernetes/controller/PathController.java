@@ -15,6 +15,8 @@ import java.util.*;
 @AllArgsConstructor
 public class PathController {
 
+    private final static List<Integer> COUNT_REQUEST = new ArrayList();
+
     private final Environment environment;
 
     @GetMapping
@@ -23,6 +25,7 @@ public class PathController {
         final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         final Calendar cal = Calendar.getInstance();
         final TimeZone timeZone = cal.getTimeZone();
+        COUNT_REQUEST.add(1);
 
         toMap.put("timezone", timeZone.getDisplayName());
         toMap.put("version", Optional.ofNullable(environment.getProperty("VERSION")).orElse("3.0.0"));
@@ -30,6 +33,7 @@ public class PathController {
         toMap.put("locale", request.getLocale().toLanguageTag());
         toMap.put("machine", request.getLocalName());
         toMap.put("date", formatter.format(LocalDateTime.now()));
+        toMap.put("totalRequisitions", COUNT_REQUEST.size());
 
         return ResponseEntity.ok(toMap);
     }
