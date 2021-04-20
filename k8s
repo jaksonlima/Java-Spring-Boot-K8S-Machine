@@ -1,0 +1,11 @@
+2021-04-19 22:36:59.016  INFO 19537 --- [main] c.k8s.Kubernetes.KubernetesApplication   : Starting KubernetesApplication using Java 1.8.0_282 on lima with PID 19537 (/home/operador/Downloads/Kubernetes/target/classes started by operador in /home/operador/Downloads/Kubernetes)
+2021-04-19 22:36:59.017  INFO 19537 --- [main] c.k8s.Kubernetes.KubernetesApplication   : The following profiles are active: production
+2021-04-19 22:36:59.422  INFO 19537 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2021-04-19 22:36:59.426  INFO 19537 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-04-19 22:36:59.426  INFO 19537 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-04-19 22:36:59.450  INFO 19537 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-04-19 22:36:59.450  INFO 19537 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 409 ms
+2021-04-19 22:36:59.539  INFO 19537 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-19 22:36:59.615  INFO 19537 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2021-04-19 22:36:59.620  INFO 19537 --- [main] c.k8s.Kubernetes.KubernetesApplication   : Started KubernetesApplication in 0.848 seconds (JVM running for 1.229)
+2021-04-19 22:37:24.630  INFO 19537 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'

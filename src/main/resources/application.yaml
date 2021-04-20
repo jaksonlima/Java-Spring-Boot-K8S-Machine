@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: k8s
+  profiles:
+    active: production
+
+server:
+  port: 8081
+
+logging:
+  level:
+    - 'INFO'
+  file:
+    path: '/var/log/spring'
+
