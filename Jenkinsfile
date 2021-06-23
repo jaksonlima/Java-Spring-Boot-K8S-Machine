@@ -13,7 +13,7 @@ pipeline {
       steps {
         script {
           dockerapp = docker.build("jaksonsneider/spring:v${env.BUILD_ID}",
-          "-f ./Dockerfile .")
+          "-f ./Dockerfile . --privileged")
         }
       }
     }
