@@ -12,8 +12,8 @@ pipeline {
     stage('Docker Build') {
       steps {
         script {
-          dockerapp = docker.build("jaksonsneider/spring:${env.BUILD_ID}",
-          '-f ./Dockerfile .')
+          dockerapp = docker.build("jaksonsneider/spring:v${env.BUILD_ID}",
+          "-f ./Dockerfile .")
         }
       }
     }
