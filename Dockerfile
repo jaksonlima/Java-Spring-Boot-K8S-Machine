@@ -6,8 +6,8 @@ WORKDIR /api
 # COPY src .
 COPY . .
 RUN ./mvnw clean install
-COPY target/*.jar app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+COPY api/target/*.jar app.jar
+ENTRYPOINT ["java","-jar","api/app.jar"]
 
 # FROM openjdk:8-jdk-alpine as build
 # WORKDIR /workspace/app
