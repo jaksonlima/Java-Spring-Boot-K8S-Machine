@@ -1,9 +1,10 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /api
-COPY mvnw .
-# COPY mvn .
-COPY pom.xml .
-COPY src .
+# COPY mvnw .
+# # COPY mvn .
+# COPY pom.xml .
+# COPY src .
+COPY . .
 RUN ./mvnw clean install
 COPY target/*.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
