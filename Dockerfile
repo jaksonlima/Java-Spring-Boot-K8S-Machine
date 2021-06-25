@@ -1,8 +1,7 @@
 FROM openjdk:8-jdk-alpine as build
 ARG JAR_FILE
 # ARG -v $HOME/.m2:/root/.m2
-# ENTRYPOINT ["echo", '${JAR_FILE}']
-COPY ${JAR_FILE} /app.jar
+COPY target/*jar /app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
 # WORKDIR /api
