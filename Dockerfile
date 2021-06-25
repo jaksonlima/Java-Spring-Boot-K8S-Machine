@@ -1,12 +1,8 @@
 FROM openjdk:8-jdk-alpine as build
 WORKDIR /api
-# COPY mvnw .
-# # COPY mvn .
-# COPY pom.xml .
-# COPY src .
 COPY . .
 RUN ./mvnw clean install
-COPY /api/target/*.jar app.jar
+COPY /api/target/Kubernetes-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java","-jar","/api/app.jar"]
 
 # FROM openjdk:8-jdk-alpine as build
