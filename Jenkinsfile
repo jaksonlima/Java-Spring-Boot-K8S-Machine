@@ -18,16 +18,10 @@ pipeline {
       }
     }
 
-//     node {
-//     checkout scm
-//     sh './mvnw -B -DskipTests clean package'
-//     docker.build("myorg/myapp").push()
-// }
-
     stage('Docker Push Image') {
       steps {
         script {
-          docker.withRegistry('https://registry.hub.docker.com/', 'dockerhub')
+          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub')
           dockerapp.push('latest')
           dockerapp.push("v${env.BUILD_ID}")
         }
