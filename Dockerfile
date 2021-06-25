@@ -12,6 +12,6 @@
 FROM openjdk:8-jdk-alpine
 WORKDIR /workspace/app
 COPY . .
-RUN ./mvnw install
+RUN --mount=type=cache,target=/root/.m2 ./mvnw clean install
 COPY /workspace/app/target/*.jar /app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
