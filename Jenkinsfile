@@ -3,20 +3,23 @@ pipeline {
 
   stages {
 
-     stage('Back-end') {
-            agent {
-                docker { image 'maven:3.8.1-adoptopenjdk-11' }
-            }
-            steps {
-                sh 'mvn --version'
-            }
-        }
+    stage ('Get Source') {
+      steps {
+        git url: 'https://github.com/jaksonlima/Java-Spring-Boot-K8S-Machine', branch: 'main'
+      }
+    }
 
-    // stage ('Get Source') {
-    //   steps {
-    //     git url: 'https://github.com/jaksonlima/Java-Spring-Boot-K8S-Machine', branch: 'main'
-    //   }
-    // }
+    stage('Back-end') {
+      agent {
+         docker { image 'maven:3.8.1-adoptopenjdk-11' }
+      }
+      steps {
+        sh 'echo "################################"'
+        sh 'mvn --version'
+        sh 'mvn clean install'
+        sh 'echo "################################"'
+     }
+  }
 
     // stage('Compile Project') {
     //   staps {
