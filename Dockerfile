@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk-alpine as build
 ARG JAR_FILE
 # ARG -v $HOME/.m2:/root/.m2
-CMD echo ${JAR_FILE}
+ENTRYPOINT ["echo", '${JAR_FILE}']
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
