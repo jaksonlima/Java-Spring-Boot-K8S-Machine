@@ -6,5 +6,5 @@ COPY .mvn .mvn
 COPY pom.xml .
 COPY src src
 
-RUN --mount=type=cache,target=/root/.m2 ./mvnw install -DskipTests
-ENTRYPOINT ["java", "-jar", "/app.jar"]
+RUN ./mvnw install -DskipTests
+RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
