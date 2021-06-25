@@ -13,5 +13,5 @@ FROM openjdk:8-jdk-alpine
 WORKDIR /workspace/app
 COPY . .
 RUN ./mvnw install
-COPY /workspace/app/target/*jar /app.jar
+COPY /workspace/app/target/*.jar /app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
