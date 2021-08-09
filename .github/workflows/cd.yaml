@@ -22,10 +22,10 @@ jobs:
           mvn -B package --file pom.xml
 
       - name: Set Cache Maven
-        uses: action/cache@v2
+        uses: actions/cache@v2
         with:
           path: ~/.m2
-          key: ${{ runner.os }}.m2-${{ hasFiles('**/pom.xml') }}
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
 
       - name: Docker meta
