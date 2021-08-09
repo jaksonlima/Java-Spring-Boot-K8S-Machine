@@ -17,16 +17,16 @@ jobs:
           distribution: 'adopt'
           java-version: 8
 
-      - name: Build Maven
-        run: |
-          mvn -B package --file pom.xml
-
       - name: Set Cache Maven
         uses: actions/cache@v2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
+      - name: Build Maven
+        run: |
+          mvn -B package --file pom.xml
 
       - name: Docker meta
         id: docker_meta
@@ -69,7 +69,7 @@ jobs:
           clusterName: k8s-1-21-2-do-2-nyc1-1628508084919
 
       - name: Set deployment image
-        run: kubectl set image deployment spring-deployment spring=jaksonsneider/spring:${{ steps.docker_meta.outputs.tags }}
+        run: kubectl set image deployment spring-deployment spring=jaksonsneider/spring:${{ steps.docker_meta.outputs.tags }} --record
 
 
 
