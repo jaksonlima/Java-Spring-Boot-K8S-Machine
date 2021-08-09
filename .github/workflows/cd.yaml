@@ -21,11 +21,18 @@ jobs:
         run: |
           mvn -B package --file pom.xml
 
+      - name: Set Cache Maven
+        uses: action/cache@v2
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}.m2-${{ hasFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
       - name: Docker meta
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-          imagens: jaksonsneider/spring
+          images: jaksonsneider/spring
           tag-sha: true
 
       - name: QEMU
