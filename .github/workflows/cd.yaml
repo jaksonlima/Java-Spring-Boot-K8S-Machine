@@ -28,13 +28,6 @@ jobs:
         run: |
           mvn -B package --file pom.xml
 
-      - name: Docker meta
-        id: docker_meta
-        uses: crazy-max/ghaction-docker-meta@v1
-        with:
-          images: jaksonsneider/spring
-          tag-sha: true
-
       - name: QEMU
         uses: docker/setup-qemu-action@v1
 

@@ -34,7 +34,7 @@ public class PathController {
         toMap.put("machine", request.getLocalName());
         toMap.put("date", formatter.format(LocalDateTime.now()));
         toMap.put("totalRequisitions", COUNT_REQUEST.size());
-        toMap.put("exit", "out");
+        toMap.put("exit", "Deployment Kubernetes With GitHub Actions");
 
         return ResponseEntity.ok(toMap);
     }
