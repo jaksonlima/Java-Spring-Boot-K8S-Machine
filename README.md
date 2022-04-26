@@ -8,3 +8,8 @@
 #### Imagem Docker disponível
 
 - jaksonsneider/spring:v3
+
+
+####
+
+- port 8081
